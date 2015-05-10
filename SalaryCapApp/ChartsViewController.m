@@ -18,9 +18,11 @@ const float UPPER_BOUND_BLUE = 215.0f;
     CGFloat minCapCharge;
     CGFloat capChargeRange;
     int year;
+    int level;
 }
 @property JBBarChartView *barChartView;
-@property ChartsHeaderFooterView *header;
+//@property ChartsHeaderFooterView *header;
+@property UIView *header;
 @property UILabel *playerLabel;
 @property UIView *footer;
 @end
@@ -30,10 +32,11 @@ const float UPPER_BOUND_BLUE = 215.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     year = 2015;
+    level = 0;
     //get data
     NSString *sql = [NSString stringWithFormat: @"select c.*, p.*, t.* from yearly_contract c inner join player p on c.player = p.id inner join team t on c.team = t.id where c.year = %i order by c.cap_charge desc limit 10", year];
     DbHandler *handler = [DbHandler getInstance];
-    highestPaidPlayersByYearList = [[NSArray alloc]initWithArray:[handler query:sql withCallback:[    Contract getContractResolver ]]];
+    highestPaidPlayersByYearList = [[NSArray alloc]initWithArray:[handler query:sql withCallback:[Contract getContractResolver ]]];
     
     maxCapCharge = [[[highestPaidPlayersByYearList objectAtIndexedSubscript:0]capCharge]floatValue];
     minCapCharge = [[[highestPaidPlayersByYearList objectAtIndexedSubscript:[highestPaidPlayersByYearList count]-1]capCharge]floatValue];
@@ -55,9 +58,42 @@ const float UPPER_BOUND_BLUE = 215.0f;
     [self.view addSubview:self.barChartView];
     
     //Header / Footer
-    self.header = [[ChartsHeaderFooterView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width, 40.0f) title:@"2015" backgroundColor:[UIColor greenColor]];
-    [self.header.graphSelectYearButton addTarget:self action:@selector(selectDate:) forControlEvents:UIControlEventTouchUpInside];
+//    self.header = [[ChartsHeaderFooterView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width, 40.0f) title:@"2015" backgroundColor:[UIColor greenColor]];
+//    [self.header.graphSelectYearButton addTarget:self action:@selector(selectDate:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.header = [[UIView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width, 40.0f)];
+    
+    //create header buttons
+    UIButton *topTen = [[UIButton alloc]initWithFrame:CGRectMake(0.0, 0.0, self.barChartView.frame.size.width/3.0f, 40.0f)];
+    [topTen setBackgroundColor:[UIColor purpleColor]];
+    [topTen addTarget:self action:@selector(topTenFilter:) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *topTenLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width/3.0f, 40.0f)];
+    topTenLabel.textAlignment = NSTextAlignmentCenter;
+    topTenLabel.text = @"Top 10";
+    [topTen addSubview:topTenLabel];
+    
+    UIButton *topTwenty = [[UIButton alloc]initWithFrame:CGRectMake(self.barChartView.frame.size.width/3.0f, 0.0, self.barChartView.frame.size.width/3.0f, 40.0f)];
+    [topTwenty setBackgroundColor:[UIColor yellowColor]];
+    [topTwenty addTarget:self action:@selector(topTwentyFilter:) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *topTwentyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width/3.0f, 40.0f)];
+    topTwentyLabel.textAlignment = NSTextAlignmentCenter;
+    topTwentyLabel.text = @"Top 20";
+    [topTwenty addSubview:topTwentyLabel];
+    
+    UIButton *topThirty = [[UIButton alloc]initWithFrame:CGRectMake(self.barChartView.frame.size.width/3.0f * 2.0f, 0.0, self.barChartView.frame.size.width/3.0f, 40.0f)];
+    [topThirty setBackgroundColor:[UIColor blueColor]];
+    [topThirty addTarget:self action:@selector(topThirtyFilter:) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *topThirtyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width/3.0f, 40.0f)];
+    topThirtyLabel.textAlignment = NSTextAlignmentCenter;
+    topThirtyLabel.text = @"Top 30";
+    [topThirty addSubview:topThirtyLabel];
+    
+    [self.header addSubview:topTen];
+    [self.header addSubview:topTwenty];
+    [self.header addSubview:topThirty];
+    
     [self.barChartView setHeaderView:self.header];
+    //end create header buttons
     
     self.footer = [[UIView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.bounds.size.width, 100.0f)];
     [self.footer setBackgroundColor:[UIColor whiteColor]];
@@ -87,6 +123,18 @@ const float UPPER_BOUND_BLUE = 215.0f;
     [self.view addGestureRecognizer:_swipeGestureLeft];
 }
 
+-(void)topTenFilter:(UIButton *)sender{
+    NSLog(@"top ten");
+}
+
+-(void)topTwentyFilter:(UIButton *)sender{
+    NSLog(@"top twenty");
+}
+
+-(void)topThirtyFilter:(UIButton *)sender{
+     NSLog(@"top thirty");
+}
+
 -(void)selectDate:(UIButton *)sender{
     [self performSegueWithIdentifier:@"graphYearSegue" sender:sender];
 }
@@ -102,7 +150,6 @@ const float UPPER_BOUND_BLUE = 215.0f;
     }
 
     self.playerLabel.frame = CGRectMake(0.0f, 0.0f, self.footer.frame.size.width, 50.0f);
-    self.header.graphSelectYearButton.frame = CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width, 40.0f);
     [self.barChartView reloadData];
 }
 
@@ -140,13 +187,26 @@ const float UPPER_BOUND_BLUE = 215.0f;
 
 #pragma mark - gestures
 
+-(void)wasDoubleTapped:(UITapGestureRecognizer *)sender{
+    NSLog(@"double tap");
+}
+
 -(void)wasSwiped:(UISwipeGestureRecognizer *)sender{
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDelegate:self];
+    [animation setType:kCATransitionPush];
+    [animation setDuration:0.25];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+
     UISwipeGestureRecognizerDirection direction = sender.direction;
     
     if(direction == UISwipeGestureRecognizerDirectionRight){
+        [animation setSubtype:kCATransitionFromRight];
         year--;
     }
     else{
+        [animation setSubtype:kCATransitionFromLeft];
         year++;
     }
     
@@ -158,8 +218,7 @@ const float UPPER_BOUND_BLUE = 215.0f;
     minCapCharge = [[[highestPaidPlayersByYearList objectAtIndexedSubscript:[highestPaidPlayersByYearList count]-1]capCharge]floatValue];
     capChargeRange = maxCapCharge - minCapCharge;
     
-    self.header.buttonLabel.text = [NSString stringWithFormat:@"%i", year];
-    
+    [self.view.layer addAnimation:animation forKey:kCATransition];
     [self.barChartView reloadData];
 }
 

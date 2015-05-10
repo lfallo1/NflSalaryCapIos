@@ -39,9 +39,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="FM6-2h-IM7" appends="YES" id="DaD-uJ-Ez7"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Charts" image="glyphicons-43-pie-chart.png" id="HRF-Hw-jia"/>
                     <connections>
@@ -49,7 +46,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5I-ZC-5ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="FM6-2h-IM7"/>
             </objects>
             <point key="canvasLocation" x="576" y="888"/>
         </scene>
