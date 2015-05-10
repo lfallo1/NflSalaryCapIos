@@ -18,7 +18,7 @@ const float UPPER_BOUND_BLUE = 215.0f;
     CGFloat minCapCharge;
     CGFloat capChargeRange;
     int year;
-    int level;
+    int limit;
 }
 @property JBBarChartView *barChartView;
 //@property ChartsHeaderFooterView *header;
@@ -32,7 +32,7 @@ const float UPPER_BOUND_BLUE = 215.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     year = 2015;
-    level = 0;
+    limit = 10;
     //get data
     NSString *sql = [NSString stringWithFormat: @"select c.*, p.*, t.* from yearly_contract c inner join player p on c.player = p.id inner join team t on c.team = t.id where c.year = %i order by c.cap_charge desc limit 10", year];
     DbHandler *handler = [DbHandler getInstance];
@@ -124,15 +124,31 @@ const float UPPER_BOUND_BLUE = 215.0f;
 }
 
 -(void)topTenFilter:(UIButton *)sender{
-    NSLog(@"top ten");
+    limit = 10;
+    [self reloadData];
 }
 
 -(void)topTwentyFilter:(UIButton *)sender{
-    NSLog(@"top twenty");
+    limit = 20;
+    [self reloadData];
 }
 
 -(void)topThirtyFilter:(UIButton *)sender{
-     NSLog(@"top thirty");
+    limit = 30;
+    [self reloadData];
+}
+
+-(void)reloadData{
+    NSString *sql = [NSString stringWithFormat: @"select c.*, p.*, t.* from yearly_contract c inner join player p on c.player = p.id inner join team t on c.team = t.id where c.year = %i order by c.cap_charge desc limit %i", year, limit];
+    DbHandler *handler = [DbHandler getInstance];
+    highestPaidPlayersByYearList = [[NSArray alloc]initWithArray:[handler query:sql withCallback:[Contract getContractResolver ]]];
+    
+    maxCapCharge = [[[highestPaidPlayersByYearList objectAtIndexedSubscript:0]capCharge]floatValue];
+    minCapCharge = [[[highestPaidPlayersByYearList objectAtIndexedSubscript:[highestPaidPlayersByYearList count]-1]capCharge]floatValue];
+    capChargeRange = maxCapCharge - minCapCharge;
+    
+    //initialize chart
+    [self.barChartView reloadData];
 }
 
 -(void)selectDate:(UIButton *)sender{
@@ -210,7 +226,7 @@ const float UPPER_BOUND_BLUE = 215.0f;
         year++;
     }
     
-    NSString *sql = [NSString stringWithFormat: @"select c.*, p.*, t.* from yearly_contract c inner join player p on c.player = p.id inner join team t on c.team = t.id where c.year = %i order by c.cap_charge desc limit 10", year];
+    NSString *sql = [NSString stringWithFormat: @"select c.*, p.*, t.* from yearly_contract c inner join player p on c.player = p.id inner join team t on c.team = t.id where c.year = %i order by c.cap_charge desc limit %i", year, limit];
     DbHandler *handler = [DbHandler getInstance];
     highestPaidPlayersByYearList = [[NSArray alloc]initWithArray:[handler query:sql withCallback:[    Contract getContractResolver ]]];
     
