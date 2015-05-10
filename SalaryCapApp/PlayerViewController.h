@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Contract.h"
+#import "ColorUtilities.h"
+#import "StringFormatters.h"
 
 @interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *contractList;

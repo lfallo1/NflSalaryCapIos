@@ -13,17 +13,22 @@
     NSArray *teams;
     Team *selectedTeam;
 }
+@property (nonatomic, assign) CGFloat lastContentOffset;
+
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.teamTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     DbHandler *db = [DbHandler getInstance];
     teams = [[NSArray alloc]initWithArray: [db query:@"select * from team where id > 0 order by name" withCallback:[Team getResolver]]];
-    
+
     [self.teamTableView reloadData];
 }
+
+#pragma mark UITableViewDatasource / UITableViewDelegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [teams count];
@@ -38,7 +43,6 @@
     Team *team = [teams objectAtIndex:indexPath.row];
     cell.teamLabel.text = [team name];
     cell.teamLogo.image = [UIImage imageNamed:team.logo];
-    cell.teamLabel.textColor = [ColorUtilities colorFromHexString: (team.secondary_color)];
     return cell;
 }
 
@@ -50,6 +54,8 @@
     selectedTeam = [teams objectAtIndex:indexPath.row];
     return indexPath;
 }
+
+#pragma mark segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier]isEqualToString:@"TeamToTeamPageSegue"]){

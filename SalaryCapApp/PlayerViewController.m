@@ -22,14 +22,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.playerContractsTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     [self.playerContractsTableView reloadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     maxIndex = [[NSNumber numberWithUnsignedInteger:[self.contractList count]]unsignedIntegerValue] - 1;
+    
+    //set label values
     self.nameLabel.text = [[[self.contractList objectAtIndex: maxIndex]player]name];
     self.positionLabel.text = [(Contract *)[self.contractList objectAtIndex:maxIndex]position];
     self.teamLogo.image = [UIImage imageNamed:[[[self.contractList objectAtIndex:maxIndex]team]logo]];
+    
+    //set label colors
+    NSString *primaryColor = [[[self.contractList objectAtIndex:maxIndex]team]primary_color];
+    [self.nameLabel setTextColor:[ColorUtilities colorFromHexString:primaryColor]];
+    [self.positionLabel setTextColor:[ColorUtilities colorFromHexString:primaryColor]];
+    
+    //resize labels
+    [self.nameLabel sizeToFit];
+    [self.positionLabel sizeToFit];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -43,12 +57,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playerContractsCell" forIndexPath:indexPath];
     NSNumber *year = [(Contract *)[self.contractList objectAtIndex:indexPath.row]year];
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    NSString *capChargeFormatted = [formatter stringFromNumber:[[self.contractList objectAtIndex:indexPath.row] capCharge]];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@", year];
-    cell.detailTextLabel.text = capChargeFormatted;
+    cell.detailTextLabel.text = [StringFormatters formatCurrency: [[self.contractList objectAtIndex:indexPath.row] capCharge]];
     return cell;
 }
 

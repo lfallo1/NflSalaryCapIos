@@ -1,0 +1,16 @@
+//
+//  SalaryCap-Prefix.pch
+//  SalaryCapApp
+//
+//  Created by Lance Fallon on 5/9/15.
+//  Copyright (c) 2015 Lance Fallon. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+#import "SalaryCapConstants.h""

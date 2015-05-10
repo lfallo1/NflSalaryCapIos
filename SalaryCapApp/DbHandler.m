@@ -53,17 +53,20 @@ static DbHandler *instance;
 {
     // Check if the database file exists in the documents directory.
     NSString *destinationPath = [self.documents stringByAppendingPathComponent:self.database];
-
+    
     // copy db from main bundle regardless, because no data is to ever be permanently persisted.
     NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.database];
     NSError *error;
+    
+    //delete db in documents directory, and copy over template
+    [[NSFileManager defaultManager]removeItemAtPath:destinationPath error:&error];
     [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
     
     // Check if any error occurred during copying and display it.
     if (error != nil)
     {
         //TODO: replace with logging implmentation
-        NSLog(@"%@", [error localizedDescription]);
+        NSLog(@"%@", [error description]);
     }
 
 }

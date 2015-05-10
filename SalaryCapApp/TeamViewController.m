@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = [self.team name];
-    year = @2014;
+    year = @2015;
     DbHandler *handler = [DbHandler getInstance];
     NSString *sql = [NSString stringWithFormat:@"select c.*, p.*, t.* from yearly_contract c inner join player p on c.player = p.id inner join team t on c.team = t.id where c.team = %@ and c.year = %@", [self.team teamId], year];
     contracts = [[NSArray alloc]initWithArray:[handler query:sql withCallback:[Contract getContractResolver]]];

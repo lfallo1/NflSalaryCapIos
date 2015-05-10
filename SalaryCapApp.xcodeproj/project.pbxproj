@@ -12,6 +12,12 @@
 		D23CFE251AFAEC390029E249 /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23CFE241AFAEC390029E249 /* TeamViewController.m */; };
 		D23CFE2A1AFAEF210029E249 /* PlayerTeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D23CFE291AFAEF210029E249 /* PlayerTeamTableViewCell.m */; };
 		D23CFE2D1AFAF6A50029E249 /* Contract.m in Sources */ = {isa = PBXBuildFile; fileRef = D23CFE2C1AFAF6A50029E249 /* Contract.m */; };
+		D25001911AFE50C900C6D5FF /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D250018C1AFE50C900C6D5FF /* JBBarChartView.m */; };
+		D25001921AFE50C900C6D5FF /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D250018E1AFE50C900C6D5FF /* JBChartView.m */; };
+		D25001931AFE50C900C6D5FF /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D25001901AFE50C900C6D5FF /* JBLineChartView.m */; };
+		D25001961AFE6C7500C6D5FF /* ChartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D25001951AFE6C7500C6D5FF /* ChartsViewController.m */; };
+		D250019B1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D250019A1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m */; };
+		D25001AD1AFEDCB900C6D5FF /* StringFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = D25001AC1AFEDCB900C6D5FF /* StringFormatters.m */; };
 		D2E56BAE1AFC284D0064857F /* glyphicons-21-home.png in Resources */ = {isa = PBXBuildFile; fileRef = D2E56BAD1AFC284D0064857F /* glyphicons-21-home.png */; };
 		D2E56BB21AFC299D0064857F /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E56BB11AFC299D0064857F /* PlayerViewController.m */; };
 		D2E56BB41AFC2B340064857F /* glyphicons-43-pie-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = D2E56BB31AFC2B340064857F /* glyphicons-43-pie-chart.png */; };
@@ -83,6 +89,21 @@
 		D23CFE291AFAEF210029E249 /* PlayerTeamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTeamTableViewCell.m; sourceTree = "<group>"; };
 		D23CFE2B1AFAF6A50029E249 /* Contract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contract.h; sourceTree = "<group>"; };
 		D23CFE2C1AFAF6A50029E249 /* Contract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contract.m; sourceTree = "<group>"; };
+		D250018B1AFE50C900C6D5FF /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
+		D250018C1AFE50C900C6D5FF /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
+		D250018D1AFE50C900C6D5FF /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
+		D250018E1AFE50C900C6D5FF /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
+		D250018F1AFE50C900C6D5FF /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
+		D25001901AFE50C900C6D5FF /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
+		D25001941AFE6C7500C6D5FF /* ChartsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartsViewController.h; sourceTree = "<group>"; };
+		D25001951AFE6C7500C6D5FF /* ChartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartsViewController.m; sourceTree = "<group>"; };
+		D25001991AFEBA7400C6D5FF /* ChartsHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartsHeaderFooterView.h; sourceTree = "<group>"; };
+		D250019A1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartsHeaderFooterView.m; sourceTree = "<group>"; };
+		D25001A11AFEC01C00C6D5FF /* FontConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontConstants.h; sourceTree = "<group>"; };
+		D25001A41AFEC41B00C6D5FF /* SalaryCapConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalaryCapConstants.h; sourceTree = "<group>"; };
+		D25001A71AFEC4BA00C6D5FF /* SalaryCap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SalaryCap-Prefix.pch"; sourceTree = "<group>"; };
+		D25001AB1AFEDCB900C6D5FF /* StringFormatters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringFormatters.h; sourceTree = "<group>"; };
+		D25001AC1AFEDCB900C6D5FF /* StringFormatters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringFormatters.m; sourceTree = "<group>"; };
 		D2E56BAD1AFC284D0064857F /* glyphicons-21-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glyphicons-21-home.png"; sourceTree = "<group>"; };
 		D2E56BB01AFC299D0064857F /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		D2E56BB11AFC299D0064857F /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
@@ -168,6 +189,8 @@
 			children = (
 				D23CFE1D1AFADCEB0029E249 /* ColorUtilities.h */,
 				D23CFE1E1AFADCEB0029E249 /* ColorUtilities.m */,
+				D25001AB1AFEDCB900C6D5FF /* StringFormatters.h */,
+				D25001AC1AFEDCB900C6D5FF /* StringFormatters.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -192,6 +215,65 @@
 				D2E7C2911AF844E2001B3A8C /* HomeViewController.m */,
 			);
 			name = HomeView;
+			sourceTree = "<group>";
+		};
+		D25001871AFE504100C6D5FF /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		D25001881AFE509600C6D5FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D25001971AFE6C7A00C6D5FF /* ChartsView */,
+				D2E56BAF1AFC297F0064857F /* PlayerView */,
+				D23CFE271AFAEEC00029E249 /* HomeView */,
+				D23CFE261AFAEDAD0029E249 /* TeamView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D25001891AFE50AE00C6D5FF /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				D250018A1AFE50BB00C6D5FF /* JBChart */,
+			);
+			name = plugins;
+			sourceTree = "<group>";
+		};
+		D250018A1AFE50BB00C6D5FF /* JBChart */ = {
+			isa = PBXGroup;
+			children = (
+				D250018B1AFE50C900C6D5FF /* JBBarChartView.h */,
+				D250018C1AFE50C900C6D5FF /* JBBarChartView.m */,
+				D250018D1AFE50C900C6D5FF /* JBChartView.h */,
+				D250018E1AFE50C900C6D5FF /* JBChartView.m */,
+				D250018F1AFE50C900C6D5FF /* JBLineChartView.h */,
+				D25001901AFE50C900C6D5FF /* JBLineChartView.m */,
+			);
+			name = JBChart;
+			sourceTree = "<group>";
+		};
+		D25001971AFE6C7A00C6D5FF /* ChartsView */ = {
+			isa = PBXGroup;
+			children = (
+				D25001941AFE6C7500C6D5FF /* ChartsViewController.h */,
+				D25001951AFE6C7500C6D5FF /* ChartsViewController.m */,
+				D25001991AFEBA7400C6D5FF /* ChartsHeaderFooterView.h */,
+				D250019A1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m */,
+			);
+			name = ChartsView;
+			sourceTree = "<group>";
+		};
+		D250019C1AFEBD2700C6D5FF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D25001A11AFEC01C00C6D5FF /* FontConstants.h */,
+				D25001A41AFEC41B00C6D5FF /* SalaryCapConstants.h */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 		D2E56BA61AFC25410064857F /* icons */ = {
@@ -235,11 +317,10 @@
 		D2E7C2881AF844E2001B3A8C /* SalaryCapApp */ = {
 			isa = PBXGroup;
 			children = (
-				D2E56BAF1AFC297F0064857F /* PlayerView */,
-				D23CFE271AFAEEC00029E249 /* HomeView */,
-				D23CFE261AFAEDAD0029E249 /* TeamView */,
+				D250019C1AFEBD2700C6D5FF /* Constants */,
+				D25001881AFE509600C6D5FF /* Views */,
+				D25001871AFE504100C6D5FF /* BusinessLogic */,
 				D23CFE1C1AFADCD90029E249 /* Utilities */,
-				D2E7C3081AF86143001B3A8C /* TableCell */,
 				D2E7C2B21AF84513001B3A8C /* Models */,
 				D2E7C2B11AF84506001B3A8C /* DbHelper */,
 				D2E7C2931AF844E2001B3A8C /* Main.storyboard */,
@@ -253,6 +334,7 @@
 		D2E7C2891AF844E2001B3A8C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D25001891AFE50AE00C6D5FF /* plugins */,
 				D2E56BA61AFC25410064857F /* icons */,
 				D2E7C2B61AF8468B001B3A8C /* team_logos */,
 				D2E7C2AF1AF844F9001B3A8C /* nflsalarycap.sqlite */,
@@ -260,6 +342,7 @@
 				D2E7C28E1AF844E2001B3A8C /* AppDelegate.m */,
 				D2E7C28A1AF844E2001B3A8C /* Info.plist */,
 				D2E7C28B1AF844E2001B3A8C /* main.m */,
+				D25001A71AFEC4BA00C6D5FF /* SalaryCap-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -340,13 +423,6 @@
 				D2E7C2D61AF8469E001B3A8C /* Vikings.png */,
 			);
 			name = team_logos;
-			sourceTree = "<group>";
-		};
-		D2E7C3081AF86143001B3A8C /* TableCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = TableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -487,15 +563,21 @@
 				D23CFE2D1AFAF6A50029E249 /* Contract.m in Sources */,
 				D23CFE221AFAE7050029E249 /* Player.m in Sources */,
 				D23CFE251AFAEC390029E249 /* TeamViewController.m in Sources */,
+				D25001921AFE50C900C6D5FF /* JBChartView.m in Sources */,
 				D2E7C2FC1AF847EB001B3A8C /* DbHandler.m in Sources */,
+				D25001961AFE6C7500C6D5FF /* ChartsViewController.m in Sources */,
 				D2E7C2B51AF84529001B3A8C /* Team.m in Sources */,
 				D2E56BB21AFC299D0064857F /* PlayerViewController.m in Sources */,
+				D25001911AFE50C900C6D5FF /* JBBarChartView.m in Sources */,
 				D2E7C2921AF844E2001B3A8C /* HomeViewController.m in Sources */,
 				D2E7C28F1AF844E2001B3A8C /* AppDelegate.m in Sources */,
+				D25001931AFE50C900C6D5FF /* JBLineChartView.m in Sources */,
 				D2E7C30B1AF8615F001B3A8C /* TeamTableViewCell.m in Sources */,
 				D23CFE2A1AFAEF210029E249 /* PlayerTeamTableViewCell.m in Sources */,
 				D2E7C28C1AF844E2001B3A8C /* main.m in Sources */,
+				D25001AD1AFEDCB900C6D5FF /* StringFormatters.m in Sources */,
 				D23CFE1F1AFADCEB0029E249 /* ColorUtilities.m in Sources */,
+				D250019B1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +703,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SalaryCapApp/SalaryCap-Prefix.pch";
 				INFOPLIST_FILE = SalaryCapApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -636,6 +719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SalaryCapApp/SalaryCap-Prefix.pch";
 				INFOPLIST_FILE = SalaryCapApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
