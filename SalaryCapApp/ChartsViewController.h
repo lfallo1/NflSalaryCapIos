@@ -14,6 +14,7 @@
 
 typedef enum {PORTRAIT_MODE = 1, LANDSCAPE_MODE} GraphOrientation;
 
-@interface ChartsViewController : UIViewController<JBBarChartViewDataSource, JBBarChartViewDelegate>
-
+@interface ChartsViewController : UIViewController<JBBarChartViewDataSource, JBBarChartViewDelegate, UIGestureRecognizerDelegate>
+@property UISwipeGestureRecognizer *swipeGestureRight;
+@property UISwipeGestureRecognizer *swipeGestureLeft;
 @end

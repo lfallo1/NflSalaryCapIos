@@ -17,6 +17,7 @@ const float UPPER_BOUND_BLUE = 215.0f;
     CGFloat maxCapCharge;
     CGFloat minCapCharge;
     CGFloat capChargeRange;
+    int year;
 }
 @property JBBarChartView *barChartView;
 @property ChartsHeaderFooterView *header;
@@ -28,9 +29,9 @@ const float UPPER_BOUND_BLUE = 215.0f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    year = 2015;
     //get data
-    NSString *sql = @"select c.*, p.*, t.* from yearly_contract c inner join player p on c.player = p.id inner join team t on c.team = t.id where c.year = 2015 order by c.cap_charge desc limit 10";
+    NSString *sql = [NSString stringWithFormat: @"select c.*, p.*, t.* from yearly_contract c inner join player p on c.player = p.id inner join team t on c.team = t.id where c.year = %i order by c.cap_charge desc limit 10", year];
     DbHandler *handler = [DbHandler getInstance];
     highestPaidPlayersByYearList = [[NSArray alloc]initWithArray:[handler query:sql withCallback:[    Contract getContractResolver ]]];
     
@@ -70,6 +71,20 @@ const float UPPER_BOUND_BLUE = 215.0f;
     [self.barChartView setFooterView:self.footer];
     //load table
     [self.barChartView reloadData];
+    
+    //add swipe gesture recognizers
+    _swipeGestureRight = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(wasSwiped:)];
+    [_swipeGestureRight setDirection: UISwipeGestureRecognizerDirectionRight];
+    _swipeGestureRight.numberOfTouchesRequired = 1;
+    _swipeGestureRight.delegate = self;
+    
+    _swipeGestureLeft = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(wasSwiped:)];
+    [_swipeGestureLeft setDirection: UISwipeGestureRecognizerDirectionLeft];
+    _swipeGestureLeft.numberOfTouchesRequired = 1;
+    _swipeGestureLeft.delegate = self;
+    
+    [self.view addGestureRecognizer:_swipeGestureRight];
+    [self.view addGestureRecognizer:_swipeGestureLeft];
 }
 
 -(void)selectDate:(UIButton *)sender{
@@ -121,6 +136,31 @@ const float UPPER_BOUND_BLUE = 215.0f;
     Contract *contract = [highestPaidPlayersByYearList objectAtIndexedSubscript:index];
     NSString *capCharge = [StringFormatters formatCurrency:[contract capCharge]];
     self.playerLabel.text  = [NSString stringWithFormat:@"%@: %@", [[contract player]name], capCharge];
+}
+
+#pragma mark - gestures
+
+-(void)wasSwiped:(UISwipeGestureRecognizer *)sender{
+    UISwipeGestureRecognizerDirection direction = sender.direction;
+    
+    if(direction == UISwipeGestureRecognizerDirectionRight){
+        year--;
+    }
+    else{
+        year++;
+    }
+    
+    NSString *sql = [NSString stringWithFormat: @"select c.*, p.*, t.* from yearly_contract c inner join player p on c.player = p.id inner join team t on c.team = t.id where c.year = %i order by c.cap_charge desc limit 10", year];
+    DbHandler *handler = [DbHandler getInstance];
+    highestPaidPlayersByYearList = [[NSArray alloc]initWithArray:[handler query:sql withCallback:[    Contract getContractResolver ]]];
+    
+    maxCapCharge = [[[highestPaidPlayersByYearList objectAtIndexedSubscript:0]capCharge]floatValue];
+    minCapCharge = [[[highestPaidPlayersByYearList objectAtIndexedSubscript:[highestPaidPlayersByYearList count]-1]capCharge]floatValue];
+    capChargeRange = maxCapCharge - minCapCharge;
+    
+    self.header.buttonLabel.text = [NSString stringWithFormat:@"%i", year];
+    
+    [self.barChartView reloadData];
 }
 
 @end
