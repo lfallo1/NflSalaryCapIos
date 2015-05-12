@@ -13,6 +13,10 @@ const float UPPER_BOUND_BLUE = 215.0f;
 
 @interface ChartsViewController ()
 {
+    UIButton *topTen;
+    UIButton *topTwenty;
+    UIButton *topThirty;
+    
     NSArray *highestPaidPlayersByYearList;
     CGFloat maxCapCharge;
     CGFloat minCapCharge;
@@ -25,6 +29,7 @@ const float UPPER_BOUND_BLUE = 215.0f;
 @property UIView *header;
 @property UILabel *playerLabel;
 @property UIView *footer;
+@property UIView *xAxis;
 @end
 
 @implementation ChartsViewController
@@ -51,9 +56,9 @@ const float UPPER_BOUND_BLUE = 215.0f;
     self.barChartView = [[JBBarChartView alloc] init];
     self.barChartView.dataSource = self;
     self.barChartView.delegate = self;
-    self.barChartView.frame = CGRectMake(20.0f, 40.0f, self.view.frame.size.width-40.0f, self.view.frame.size.height-100.0f);
-    self.barChartView.backgroundColor = [UIColor redColor];
-    [self.barChartView setMaximumValue: (maxCapCharge + 1000000.0f)];
+    self.barChartView.frame = CGRectMake(60.0f, 40.0f, self.view.frame.size.width-60.0f, self.view.frame.size.height-100.0f);
+    self.barChartView.backgroundColor = [UIColor clearColor];
+    [self.barChartView setMaximumValue: maxCapCharge];
     [self.barChartView setMinimumValue:0.0f];
     [self.view addSubview:self.barChartView];
     
@@ -64,30 +69,27 @@ const float UPPER_BOUND_BLUE = 215.0f;
     self.header = [[UIView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width, 40.0f)];
     
     //create header buttons
-    UIButton *topTen = [[UIButton alloc]initWithFrame:CGRectMake(0.0, 0.0, self.barChartView.frame.size.width/3.0f, 40.0f)];
-    [topTen setBackgroundColor:[UIColor purpleColor]];
+    topTen = [[UIButton alloc]initWithFrame:CGRectMake(0.0, 0.0, self.barChartView.frame.size.width/3.0f, 40.0f)];
+    [topTen setTitle:@"Top 10" forState:UIControlStateNormal];
+    [topTen setTitleColor:self.view.tintColor forState:UIControlStateNormal];
+    [topTen setTitleColor:[UIColor colorWithWhite:0.5f alpha:0.9f] forState:UIControlStateHighlighted];
+    [topTen setTitleColor:[UIColor colorWithWhite:0.5f alpha:1.0f] forState:UIControlStateSelected];
     [topTen addTarget:self action:@selector(topTenFilter:) forControlEvents:UIControlEventTouchUpInside];
-    UILabel *topTenLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width/3.0f, 40.0f)];
-    topTenLabel.textAlignment = NSTextAlignmentCenter;
-    topTenLabel.text = @"Top 10";
-    [topTen addSubview:topTenLabel];
     
-    UIButton *topTwenty = [[UIButton alloc]initWithFrame:CGRectMake(self.barChartView.frame.size.width/3.0f, 0.0, self.barChartView.frame.size.width/3.0f, 40.0f)];
-    [topTwenty setBackgroundColor:[UIColor yellowColor]];
+    topTwenty = [[UIButton alloc]initWithFrame:CGRectMake(self.barChartView.frame.size.width/3.0f, 0.0, self.barChartView.frame.size.width/3.0f, 40.0f)];
+    [topTwenty setTitle:@"Top 20" forState:UIControlStateNormal];
+    [topTwenty setTitleColor:self.view.tintColor forState:UIControlStateNormal];
+    [topTwenty setTitleColor:[UIColor colorWithWhite:0.5f alpha:0.9f] forState:UIControlStateHighlighted];
+    [topTwenty setTitleColor:[UIColor colorWithWhite:0.5f alpha:1.0f] forState:UIControlStateSelected];
     [topTwenty addTarget:self action:@selector(topTwentyFilter:) forControlEvents:UIControlEventTouchUpInside];
-    UILabel *topTwentyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width/3.0f, 40.0f)];
-    topTwentyLabel.textAlignment = NSTextAlignmentCenter;
-    topTwentyLabel.text = @"Top 20";
-    [topTwenty addSubview:topTwentyLabel];
     
-    UIButton *topThirty = [[UIButton alloc]initWithFrame:CGRectMake(self.barChartView.frame.size.width/3.0f * 2.0f, 0.0, self.barChartView.frame.size.width/3.0f, 40.0f)];
-    [topThirty setBackgroundColor:[UIColor blueColor]];
+    topThirty = [[UIButton alloc]initWithFrame:CGRectMake(self.barChartView.frame.size.width/3.0f * 2.0f, 0.0, self.barChartView.frame.size.width/3.0f, 40.0f)];
+    [topThirty setTitle:@"Top 30" forState:UIControlStateNormal];
+    [topThirty setTitleColor:self.view.tintColor forState:UIControlStateNormal];
+    [topThirty setTitleColor:[UIColor colorWithWhite:0.5f alpha:0.9f] forState:UIControlStateHighlighted];
+    [topThirty setTitleColor:[UIColor colorWithWhite:0.5f alpha:1.0f] forState:UIControlStateSelected];
     [topThirty addTarget:self action:@selector(topThirtyFilter:) forControlEvents:UIControlEventTouchUpInside];
-    UILabel *topThirtyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.barChartView.frame.size.width/3.0f, 40.0f)];
-    topThirtyLabel.textAlignment = NSTextAlignmentCenter;
-    topThirtyLabel.text = @"Top 30";
-    [topThirty addSubview:topThirtyLabel];
-    
+
     [self.header addSubview:topTen];
     [self.header addSubview:topTwenty];
     [self.header addSubview:topThirty];
@@ -105,6 +107,9 @@ const float UPPER_BOUND_BLUE = 215.0f;
     [self.playerLabel setFont:scFontHeaderSubtitle];
     [self.footer addSubview:self.playerLabel];
     [self.barChartView setFooterView:self.footer];
+    
+    [self addXAxis];
+    
     //load table
     [self.barChartView reloadData];
     
@@ -123,18 +128,50 @@ const float UPPER_BOUND_BLUE = 215.0f;
     [self.view addGestureRecognizer:_swipeGestureLeft];
 }
 
+-(void)addXAxis{
+    [[self.xAxis subviews]makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.xAxis = [[UIView alloc]initWithFrame:CGRectMake(0.0f, 40.0f + self.header.frame.size.height, 60.0f, self.view.frame.size.height - 100.0f - self.header.frame.size.height - self.footer.frame.size.height)];
+    [self.xAxis setBackgroundColor:[UIColor clearColor]];
+    long increments = [[NSNumber numberWithFloat: maxCapCharge / 4.0f]integerValue];
+    float heightGaps = self.xAxis.frame.size.height / 4.0f;
+    for (int i = 0; i < 5; i++) {
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, self.xAxis.frame.size.height - ([[NSNumber numberWithInt:i]floatValue] * heightGaps) - 10.0f, self.xAxis.frame.size.width, 20.0f)];
+        NSString *labelValue = [StringFormatters formatCurrency:[NSNumber numberWithLong:increments * [[NSNumber numberWithInt:i]longValue]]];
+        label.text = labelValue;
+        label.font = [UIFont fontWithName:@"Arial" size:10.0f];
+        label.textColor = [UIColor colorWithRed:1.0f green:174.0f/255.0f blue:0.0f alpha:1.0f];
+        label.textAlignment = NSTextAlignmentRight;
+
+        UIView *line = [[UIView alloc]initWithFrame:CGRectMake(60.0f, self.xAxis.frame.size.height - ([[NSNumber numberWithInt:i]floatValue] * heightGaps), self.barChartView.frame.size.width, 1.0f)];
+        [line setBackgroundColor:[UIColor colorWithRed:1.0f green:174.0f/255.0f blue:0.0f alpha:0.8f]];
+        
+        [self.xAxis addSubview:label];
+        [self.xAxis addSubview:line];
+    }
+    [self.view addSubview:self.xAxis];
+}
+
 -(void)topTenFilter:(UIButton *)sender{
     limit = 10;
+    [topTen setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [topTwenty setTitleColor:self.view.tintColor forState:UIControlStateNormal];
+    [topThirty setTitleColor:self.view.tintColor forState:UIControlStateNormal];
     [self reloadData];
 }
 
 -(void)topTwentyFilter:(UIButton *)sender{
     limit = 20;
+    [topTen setTitleColor:self.view.tintColor forState:UIControlStateNormal];
+    [topTwenty setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [topThirty setTitleColor:self.view.tintColor forState:UIControlStateNormal];
     [self reloadData];
 }
 
 -(void)topThirtyFilter:(UIButton *)sender{
     limit = 30;
+    [topTen setTitleColor:self.view.tintColor forState:UIControlStateNormal];
+    [topTwenty setTitleColor:self.view.tintColor forState:UIControlStateNormal];
+    [topThirty setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [self reloadData];
 }
 
@@ -166,6 +203,7 @@ const float UPPER_BOUND_BLUE = 215.0f;
     }
 
     self.playerLabel.frame = CGRectMake(0.0f, 0.0f, self.footer.frame.size.width, 50.0f);
+    //[self addXAxis];
     [self.barChartView reloadData];
 }
 
@@ -201,6 +239,10 @@ const float UPPER_BOUND_BLUE = 215.0f;
     self.playerLabel.text  = [NSString stringWithFormat:@"%@: %@", [[contract player]name], capCharge];
 }
 
+-(CGFloat)barPaddingForBarChartView:(JBBarChartView *)barChartView{
+    return 1.0f;
+}
+
 #pragma mark - gestures
 
 -(void)wasDoubleTapped:(UITapGestureRecognizer *)sender{
@@ -233,6 +275,9 @@ const float UPPER_BOUND_BLUE = 215.0f;
     maxCapCharge = [[[highestPaidPlayersByYearList objectAtIndexedSubscript:0]capCharge]floatValue];
     minCapCharge = [[[highestPaidPlayersByYearList objectAtIndexedSubscript:[highestPaidPlayersByYearList count]-1]capCharge]floatValue];
     capChargeRange = maxCapCharge - minCapCharge;
+    
+    self.barChartView.maximumValue = maxCapCharge;
+    [self addXAxis];
     
     [self.view.layer addAnimation:animation forKey:kCATransition];
     [self.barChartView reloadData];
