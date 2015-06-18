@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C180F40C1B331865001C6361 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C180F40B1B331865001C6361 /* MainTabBarController.m */; };
+		C180F4101B331B0E001C6361 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C180F40F1B331B0E001C6361 /* AboutViewController.m */; };
 		D23CFE1F1AFADCEB0029E249 /* ColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D23CFE1E1AFADCEB0029E249 /* ColorUtilities.m */; };
 		D23CFE221AFAE7050029E249 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = D23CFE211AFAE7050029E249 /* Player.m */; };
 		D23CFE251AFAEC390029E249 /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23CFE241AFAEC390029E249 /* TeamViewController.m */; };
@@ -16,7 +18,6 @@
 		D25001921AFE50C900C6D5FF /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D250018E1AFE50C900C6D5FF /* JBChartView.m */; };
 		D25001931AFE50C900C6D5FF /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D25001901AFE50C900C6D5FF /* JBLineChartView.m */; };
 		D25001961AFE6C7500C6D5FF /* ChartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D25001951AFE6C7500C6D5FF /* ChartsViewController.m */; };
-		D250019B1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D250019A1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m */; };
 		D25001AD1AFEDCB900C6D5FF /* StringFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = D25001AC1AFEDCB900C6D5FF /* StringFormatters.m */; };
 		D2E56BAE1AFC284D0064857F /* glyphicons-21-home.png in Resources */ = {isa = PBXBuildFile; fileRef = D2E56BAD1AFC284D0064857F /* glyphicons-21-home.png */; };
 		D2E56BB21AFC299D0064857F /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E56BB11AFC299D0064857F /* PlayerViewController.m */; };
@@ -79,6 +80,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C180F40A1B331865001C6361 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		C180F40B1B331865001C6361 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		C180F40E1B331B0E001C6361 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		C180F40F1B331B0E001C6361 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		D23CFE1D1AFADCEB0029E249 /* ColorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorUtilities.h; sourceTree = "<group>"; };
 		D23CFE1E1AFADCEB0029E249 /* ColorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorUtilities.m; sourceTree = "<group>"; };
 		D23CFE201AFAE7050029E249 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -97,8 +102,6 @@
 		D25001901AFE50C900C6D5FF /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
 		D25001941AFE6C7500C6D5FF /* ChartsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartsViewController.h; sourceTree = "<group>"; };
 		D25001951AFE6C7500C6D5FF /* ChartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartsViewController.m; sourceTree = "<group>"; };
-		D25001991AFEBA7400C6D5FF /* ChartsHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartsHeaderFooterView.h; sourceTree = "<group>"; };
-		D250019A1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartsHeaderFooterView.m; sourceTree = "<group>"; };
 		D25001A11AFEC01C00C6D5FF /* FontConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontConstants.h; sourceTree = "<group>"; };
 		D25001A41AFEC41B00C6D5FF /* SalaryCapConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalaryCapConstants.h; sourceTree = "<group>"; };
 		D25001A71AFEC4BA00C6D5FF /* SalaryCap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SalaryCap-Prefix.pch"; sourceTree = "<group>"; };
@@ -184,6 +187,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C180F4091B331832001C6361 /* MainTabBarCtrl */ = {
+			isa = PBXGroup;
+			children = (
+				C180F40A1B331865001C6361 /* MainTabBarController.h */,
+				C180F40B1B331865001C6361 /* MainTabBarController.m */,
+			);
+			name = MainTabBarCtrl;
+			sourceTree = "<group>";
+		};
+		C180F40D1B331AF2001C6361 /* AboutView */ = {
+			isa = PBXGroup;
+			children = (
+				C180F40E1B331B0E001C6361 /* AboutViewController.h */,
+				C180F40F1B331B0E001C6361 /* AboutViewController.m */,
+			);
+			name = AboutView;
+			sourceTree = "<group>";
+		};
 		D23CFE1C1AFADCD90029E249 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +248,8 @@
 		D25001881AFE509600C6D5FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C180F40D1B331AF2001C6361 /* AboutView */,
+				C180F4091B331832001C6361 /* MainTabBarCtrl */,
 				D25001971AFE6C7A00C6D5FF /* ChartsView */,
 				D2E56BAF1AFC297F0064857F /* PlayerView */,
 				D23CFE271AFAEEC00029E249 /* HomeView */,
@@ -261,8 +284,6 @@
 			children = (
 				D25001941AFE6C7500C6D5FF /* ChartsViewController.h */,
 				D25001951AFE6C7500C6D5FF /* ChartsViewController.m */,
-				D25001991AFEBA7400C6D5FF /* ChartsHeaderFooterView.h */,
-				D250019A1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m */,
 			);
 			name = ChartsView;
 			sourceTree = "<group>";
@@ -474,6 +495,7 @@
 				TargetAttributes = {
 					D2E7C2851AF844E2001B3A8C = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 8WA7DRSH64;
 					};
 					D2E7C29E1AF844E2001B3A8C = {
 						CreatedOnToolsVersion = 6.3;
@@ -566,18 +588,19 @@
 				D25001921AFE50C900C6D5FF /* JBChartView.m in Sources */,
 				D2E7C2FC1AF847EB001B3A8C /* DbHandler.m in Sources */,
 				D25001961AFE6C7500C6D5FF /* ChartsViewController.m in Sources */,
+				C180F4101B331B0E001C6361 /* AboutViewController.m in Sources */,
 				D2E7C2B51AF84529001B3A8C /* Team.m in Sources */,
 				D2E56BB21AFC299D0064857F /* PlayerViewController.m in Sources */,
 				D25001911AFE50C900C6D5FF /* JBBarChartView.m in Sources */,
 				D2E7C2921AF844E2001B3A8C /* HomeViewController.m in Sources */,
 				D2E7C28F1AF844E2001B3A8C /* AppDelegate.m in Sources */,
 				D25001931AFE50C900C6D5FF /* JBLineChartView.m in Sources */,
+				C180F40C1B331865001C6361 /* MainTabBarController.m in Sources */,
 				D2E7C30B1AF8615F001B3A8C /* TeamTableViewCell.m in Sources */,
 				D23CFE2A1AFAEF210029E249 /* PlayerTeamTableViewCell.m in Sources */,
 				D2E7C28C1AF844E2001B3A8C /* main.m in Sources */,
 				D25001AD1AFEDCB900C6D5FF /* StringFormatters.m in Sources */,
 				D23CFE1F1AFADCEB0029E249 /* ColorUtilities.m in Sources */,
-				D250019B1AFEBA7400C6D5FF /* ChartsHeaderFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +726,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SalaryCapApp/SalaryCap-Prefix.pch";
 				INFOPLIST_FILE = SalaryCapApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -719,6 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SalaryCapApp/SalaryCap-Prefix.pch";
 				INFOPLIST_FILE = SalaryCapApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

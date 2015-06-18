@@ -7,14 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Contract.h"
-#import "JBBarChartView.h"
-#import "ChartsHeaderFooterView.h"
-#import "StringFormatters.h"
 
 typedef enum {PORTRAIT_MODE = 1, LANDSCAPE_MODE} GraphOrientation;
 
-@interface ChartsViewController : UIViewController<JBBarChartViewDataSource, JBBarChartViewDelegate, UIGestureRecognizerDelegate>
-@property UISwipeGestureRecognizer *swipeGestureRight;
-@property UISwipeGestureRecognizer *swipeGestureLeft;
+@interface ChartsViewController : UIViewController
+
 @end
