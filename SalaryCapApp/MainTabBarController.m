@@ -18,14 +18,14 @@
     [super viewDidLoad];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults setBool:NO forKey:@"isPremium"];
+    [defaults setBool:NO forKey:@"isPremium"];
     BOOL isPremium = [defaults boolForKey:@"isPremium"];
     [defaults synchronize];
     
-//    if(!isPremium){
-//        [[[[self tabBar]items]objectAtIndex:1]setEnabled:FALSE];
-//        [[[[self tabBar]items]objectAtIndex:2]setEnabled:FALSE];
-//    }
+    if(!isPremium){
+        [[[[self tabBar]items]objectAtIndex:1]setEnabled:FALSE];
+        [[[[self tabBar]items]objectAtIndex:2]setEnabled:FALSE];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

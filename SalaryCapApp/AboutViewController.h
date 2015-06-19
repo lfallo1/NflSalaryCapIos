@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface AboutViewController : UIViewController
+{
+    BOOL isPremium;
+}
 
+//- (IBAction)purchase;
+//- (IBAction)restore;
+//- (IBAction)tapsPurchasePremium;
 @end

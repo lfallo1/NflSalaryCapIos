@@ -19,6 +19,7 @@
 		D25001931AFE50C900C6D5FF /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D25001901AFE50C900C6D5FF /* JBLineChartView.m */; };
 		D25001961AFE6C7500C6D5FF /* ChartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D25001951AFE6C7500C6D5FF /* ChartsViewController.m */; };
 		D25001AD1AFEDCB900C6D5FF /* StringFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = D25001AC1AFEDCB900C6D5FF /* StringFormatters.m */; };
+		D2BDB1751B339083007CBB92 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BDB1741B339083007CBB92 /* StoreKit.framework */; };
 		D2E56BAE1AFC284D0064857F /* glyphicons-21-home.png in Resources */ = {isa = PBXBuildFile; fileRef = D2E56BAD1AFC284D0064857F /* glyphicons-21-home.png */; };
 		D2E56BB21AFC299D0064857F /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E56BB11AFC299D0064857F /* PlayerViewController.m */; };
 		D2E56BB41AFC2B340064857F /* glyphicons-43-pie-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = D2E56BB31AFC2B340064857F /* glyphicons-43-pie-chart.png */; };
@@ -107,6 +108,7 @@
 		D25001A71AFEC4BA00C6D5FF /* SalaryCap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SalaryCap-Prefix.pch"; sourceTree = "<group>"; };
 		D25001AB1AFEDCB900C6D5FF /* StringFormatters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringFormatters.h; sourceTree = "<group>"; };
 		D25001AC1AFEDCB900C6D5FF /* StringFormatters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringFormatters.m; sourceTree = "<group>"; };
+		D2BDB1741B339083007CBB92 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D2E56BAD1AFC284D0064857F /* glyphicons-21-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glyphicons-21-home.png"; sourceTree = "<group>"; };
 		D2E56BB01AFC299D0064857F /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		D2E56BB11AFC299D0064857F /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2BDB1751B339083007CBB92 /* StoreKit.framework in Frameworks */,
 				D2E7C3061AF859BC001B3A8C /* libsqlite3.0.dylib in Frameworks */,
 				D2E7C3071AF859BC001B3A8C /* libsqlite3.dylib in Frameworks */,
 			);
@@ -318,6 +321,7 @@
 		D2E7C27D1AF844E2001B3A8C = {
 			isa = PBXGroup;
 			children = (
+				D2BDB1741B339083007CBB92 /* StoreKit.framework */,
 				D2E7C3041AF859BC001B3A8C /* libsqlite3.0.dylib */,
 				D2E7C3051AF859BC001B3A8C /* libsqlite3.dylib */,
 				D2E7C2881AF844E2001B3A8C /* SalaryCapApp */,
